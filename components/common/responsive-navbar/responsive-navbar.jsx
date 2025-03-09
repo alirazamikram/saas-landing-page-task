@@ -4,7 +4,7 @@ import React from "react";
 const ResponsiveNavbar = ({ isOpen, setIsOpen }) => {
   return (
     <div
-      className={`absolute top-[83px] right-0 w-full bg-black p-6 flex flex-col items-center space-y-4 rounded-xl lg:hidden`}
+      className={`absolute top-[83px] right-0 w-full h-[calc(100vh-117px)] bg-black p-6 flex flex-col items-center space-y-4 rounded-xl lg:hidden`}
     >
       <Link
         href="/"

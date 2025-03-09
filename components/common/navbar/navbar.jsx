@@ -1,11 +1,24 @@
 import { Menu, X } from "lucide-react"; // Import Menu & Cross Icons
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ResponsiveNavbar from "../responsive-navbar/responsive-navbar";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  // Effect to add/remove overflow-hidden class on body when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    return () => {
+      document.body.classList.remove("overflow-hidden"); // Cleanup on unmount
+    };
+  }, [isOpen]);
 
   return (
     <nav className="relative z-20 w-full max-w-[668px] h-[63px] flex justify-between items-center border-[0.8px] border-opacity-15 border-white rounded-[200px] px-5 lg:px-8">
